@@ -1,0 +1,28 @@
+service: serverless-example
+
+frameworkVersion: ^3.39.0
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  stackName: e-commerce-app-stack
+  region: us-east-2
+  timeout: 30
+
+functions:
+  main:
+    handler: dist/main.handler
+    events:
+      - httpApi:
+          method: GET
+          path: /api/v1/products/{id}
+      - httpApi:
+          method: POST
+          path: /api/v1/products
+
+custom:
+  serverless-offline:
+    noPrependStageInUrl: true
