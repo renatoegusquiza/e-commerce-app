@@ -44,7 +44,7 @@ export class ProductService {
 
         await this.mailerRepository.sendEmail(this.getEmailDetails(newProducto))
 
-        await this.productRepository.create(product) //? Guarda el producto en el repositorio y lo retorna
+        //await this.productRepository.create(product) //? Guarda el producto en el repositorio y lo retorna
 
         await this.metadataRepository.upload(newProducto.id, newProducto.name)
 
