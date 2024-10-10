@@ -23,12 +23,15 @@ import { MyMailerModule } from './infrastructure/repository/mail/mailer.module';
 
 // import { PostgresProductRepository } from './infrastructure/repository/postgres/PostgresProductRepository';
 // import { PostgresSupplierRepository } from './infrastructure/repository/postgres/PostgresSupplierRepository';
+import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     // PostgresModule,
     // MongoModule
-    MyMailerModule
+    MyMailerModule,
+    AuthModule
   ],
   controllers: [ProductController, CacheController],
   providers: [

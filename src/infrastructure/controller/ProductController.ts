@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Post, Get, NotFoundException, UseFilters } from '@nestjs/common';
+import { Body, Controller, Param, Post, Get, NotFoundException, UseFilters, UseGuards } from '@nestjs/common';
 import { Product } from 'src/domain/entity/Product';
 import { CreateProductRequest } from './dto/CreateProductRequest';
 import { ProductService } from 'src/application/service/ProductService'
@@ -6,13 +6,15 @@ import { FindProductByIdRequest } from './dto/FindProductByIdRequest';
 import { CustomException } from 'src/common/CustomException';
 import { CustomExceptionFilter } from 'src/common/CustomExceptionFilter';
 import { ApiTags } from '@nestjs/swagger';
+import { AuthGuard } from 'src/common/AuthGuard';
 
 @Controller("api/v1/products")
 @UseFilters(new CustomExceptionFilter()) //? Aplica el filtro de excepciones personalizadas a este controlador
 @ApiTags('Products')
 export class ProductController {
     constructor(private readonly productService: ProductService) {} //? Inyecta el servicio 'ProductService' para manejar las 
-                                                                    //?operaciones relacionadas con productos
+                                                                   //?operaciones relacionadas con productos
+    @UseGuards(AuthGuard)
     @Post()
     async create(@Body() request: CreateProductRequest): Promise<object> {
     //? Método asíncrono que recibe el cuerpo de la solicitud en el formato de 'CreateProductRequest'
