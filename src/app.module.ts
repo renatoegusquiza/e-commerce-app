@@ -7,29 +7,27 @@ import { ProductRepository } from './domain/repository/ProductRepository';
 import { SupplierRepository } from './domain/repository/SupplierRepository';
 import { InMemorySupplierRepository } from './infrastructure/repository/database/in-memory/InMemorySupplierRepository';
 import { DynamoProductRepository } from './infrastructure/repository/database/dynamo-db/DynamoProductRepository';
-//import { MongoModule } from './infrastructure/repository/database/mongo-db/mongo.module';
-//import { PostgresModule } from './infrastructure/repository/database/postgres/postgres.module';
-//import { MongoProductRepository } from './infrastructure/repository/database/mongo-db/MongoProductRepository';
 import { CacheController } from './infrastructure/controller/CacheController';
 import { RedisCacheRepository } from './infrastructure/repository/cache/RedisCacheRepository';
 import { CacheRepository } from './domain/repository/CacheRepository';
 import { CacheService } from './application/service/CacheService';
 import { InMemoryProductRepository } from './infrastructure/repository/database/in-memory/InMemoryProductRepository';
-import { S3MetadataRepository } from './infrastructure/repository/database/s3/S3MetadataRepository';
 import { MetadataRepository } from './domain/repository/MetadataRepository';
 import { NodeMailerRepository } from './infrastructure/repository/mail/NodemailerRepository';
 import { MailerRepository } from './domain/repository/MailerRepository';
 import { MyMailerModule } from './infrastructure/repository/mail/mailer.module';
-
 // import { PostgresProductRepository } from './infrastructure/repository/postgres/PostgresProductRepository';
 // import { PostgresSupplierRepository } from './infrastructure/repository/postgres/PostgresSupplierRepository';
 import { AuthModule } from './auth/auth.module';
-import { AuthModule } from './auth/auth.module';
+import { MongoModule } from './infrastructure/repository/database/mondo-db/mongo.module';
+import { PostgresModule } from './infrastructure/repository/database/postgress/postgres.module';
+import { MongoProductRepository } from './infrastructure/repository/database/mondo-db/MongoProductRepository';
+import { S3MetadataRepository } from './infrastructure/repository/database/s3/S3MetadataRepository';
 
 @Module({
   imports: [
-    // PostgresModule,
-    // MongoModule
+    //PostgresModule,
+    //MongoModule,
     MyMailerModule,
     AuthModule
   ],
@@ -41,7 +39,7 @@ import { AuthModule } from './auth/auth.module';
     InMemorySupplierRepository,
     // PostgresProductRepository,
     // PostgresSupplierRepository,
-    // MongoProductRepository,
+    //MongoProductRepository,
     RedisCacheRepository,
     S3MetadataRepository,
     NodeMailerRepository,

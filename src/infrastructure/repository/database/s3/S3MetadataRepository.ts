@@ -1,10 +1,10 @@
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 import { getS3Client } from "src/common/aws/Client";
-import { MetadaRepository } from "src/domain/repository/MetadataRepository";
+import { MetadataRepository } from "src/domain/repository/MetadataRepository";
 import fs from 'fs'
 
 
-export class S3MetadataRepository implements MetadaRepository{
+export class S3MetadataRepository implements MetadataRepository{
     async upload(id: number, name: string): Promise<void> {
         //? Método asíncrono para subir un archivo a un bucket de S3 en AWS
         

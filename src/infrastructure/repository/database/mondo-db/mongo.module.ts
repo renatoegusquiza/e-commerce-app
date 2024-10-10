@@ -24,10 +24,12 @@ import { Product } from 'src/domain/entity/Product';
         ssl: {rejectUnauthorized: false}
       }), */
       MongooseModule.forRoot(
-        //! aqui se pone la ruta que te dan cuando te creaas tu database en mongodb
+        'mongodb+srv://admin:<YOUR_PASSWORD>@tecylabs.2kyjc.mongodb.net/?retryWrites=true&w=majority&appName=TecyLabs'//! aqui se pone la ruta que te dan cuando te creaas tu database en mongodb
       ), //? es abstraccion por la cual voy a poder interactuar con mi BD
-      MongooseModule.forFeature([{name: ProductModel.name, schema: ProductSchema}])
+      MongooseModule.forFeature([
+        {name: ProductModel.name, schema: ProductSchema}
+      ])
   ],
-  exports: [TypeOrmModule]
+  exports: [MongooseModule]
 })
 export class MongoModule {}

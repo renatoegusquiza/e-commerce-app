@@ -1,10 +1,10 @@
-import { Model } from "mongoose";
-import { Product } from "src/domain/entity/Product";
-import { ProductRepository } from "src/domain/repository/ProductRepository";
-import { ProductModel } from "./schema/ProductsSchema";
-import { InjectModel } from "@nestjs/mongoose";
-//import { Injectable } from "@nestjs/common";
-//import { Injectable } from "src/common/Injectable";
+import { InjectModel } from '@nestjs/mongoose';
+import { Product } from '../../../../domain/entity/Product';
+import { ProductRepository } from '../../../../domain/repository/ProductRepository';
+//import { ProductModel } from './schema/ProductSchema';
+import { Model } from 'mongoose';
+import { ProductModel } from './schema/ProductsSchema';
+
 
 export class MongoProductRepository implements ProductRepository{
     

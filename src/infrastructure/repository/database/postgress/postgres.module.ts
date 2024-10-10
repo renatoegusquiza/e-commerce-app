@@ -20,7 +20,7 @@ import { DataSource } from 'typeorm';
         autoLoadEntities: true,
         ssl: {rejectUnauthorized: false}
       }),
-      TypeOrmModule.forFeature([DataSource]) //? es abstraccion por la cual voy a poder interactuar con mi BD
+      TypeOrmModule.forFeature([ProductModel, SupplierModel]) //? es abstraccion por la cual voy a poder interactuar con mi BD
   ],
   exports: [TypeOrmModule]
 })

@@ -14,6 +14,6 @@ import { MongooseModule } from "@nestjs/mongoose";
             }
         })
     ],
-    exports: [MongooseModule],
+    exports: [MailerModule],
 })
 export class MyMailerModule {}
